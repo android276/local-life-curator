@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트농업 3D 맞춤설계 컨설턴트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+            line-height: 1.7;
+        }
+        
+        :root {
+            --deep-green: #2A7F62;
+            --tech-orange: #F9A825;
+            --light-bg: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--deep-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 120px 40px 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+        
+        .hero .highlight {
+            color: var(--deep-green);
+        }
+        
+        .hero .subtitle {
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        
+        .hero .sub-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #666;
+            margin-bottom: 70px;
+            line-height: 1.8;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--light-bg);
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .pain-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .pain-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pain-card .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .pain-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--deep-green);
+        }
+        
+        .pain-card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Solution Section */
+        .solution-box {
+            background: linear-gradient(135deg, var(--deep-green) 0%, #1e5f4a 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .solution-box h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .solution-box p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .benefit-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: var(--tech-orange);
+            color: white;
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-item h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--deep-green);
+        }
+        
+        .benefit-item p {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Trust Section */
+        .trust {
+            background: var(--light-bg);
+        }
+        
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .credential-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .credential-card .badge {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+        
+        .credential-card h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--deep-green);
+            font-weight: 700;
+        }
+        
+        .credential-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Pricing Section */
+        .pricing-box {
+            background: white;
+            border: 3px solid var(--tech-orange);
+            border-radius: 20px;
+            padding: 60px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(249,168,37,0.15);
+        }
+        
+        .beta-badge {
+            display: inline-block;
+            background: var(--tech-orange);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-box h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        
+        .benefits-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .benefits-list li {
+            font-size: 18px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            list-style: none;
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: var(--deep-green);
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 40px;
+        }
+        
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+        
+        .cta-section p {
+            font-size: 22px;
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--tech-orange);
+            color: white;
+            padding: 25px 60px;
+            font-size: 22px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(249,168,37,0.3);
+        }
+        
+        .cta-button:hover {
+            background: #e89710;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(249,168,37,0.4);
+        }
+        
+        .urgency {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #ffc107;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 40px;
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            .benefits-grid,
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#problem">문제</a></li>
+            <li><a href="#solution">솔루션</a></li>
+            <li><a href="#benefits">혜택</a></li>
+            <li><a href="#trust">신뢰</a></li>
+            <li><a href="#pricing">가격</a></li>
+            <li><a href="#cta">신청</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>"자동화 로봇 팔이<br>자꾸 <span class="highlight">'배'를 떨어트리나요?</span>"</h1>
+        <p class="subtitle">기성품 부품이 해결 못한 '단 1%'의 오차,</p>
+        <p class="sub-subtitle">스마트농업 전공자가 3D 맞춤 설계로 완벽하게 잡겠습니다.</p>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem">
+        <h2 class="section-title">비싼 돈 들인 자동화,<br>왜 현장에선 멈추죠?</h2>
+        <p class="section-subtitle">정부 지원으로 스마트팜 설비를 도입했지만,<br>기성품 부품이 내 농장 환경과 작물에 맞지 않아 제대로 활용하지 못하는 안타까운 상황.</p>
+        
+        <div class="pain-points">
+            <div class="pain-card">
+                <div class="icon">⚠️</div>
+                <h3>"기계가 자꾸 멈춥니다"</h3>
+                <p>스마트팜 좋다고 해서 큰맘 먹고 도입했는데, 기계가 자꾸 멈춰서 결국 사람이 옆에 붙어 있어야 합니다.</p>
+            </div>
+            <div class="pain-card">
+                <div class="icon">🍐</div>
+                <h3>"과일을 떨어트립니다"</h3>
+                <p>우리 농장 배 모양이 특이해서 그런지, 로봇 팔이 자꾸만 과일을 떨어트려 손실이 큽니다.</p>
+            </div>
+            <div class="pain-card">
+                <div class="icon">💸</div>
+                <h3>"비싼 투자가 무용지물"</h3>
+                <p>분명히 자동화 라인인데, 현장에서 제대로 작동하지 않아 투자 대비 효율이 나오지 않습니다.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px; font-size: 20px; color: #444; font-weight: 500;">
+            자동화의 마지막 1%, 그 <span style="color: var(--tech-orange); font-weight: 700;">'사소하지만 치명적인'</span> 부품 하나가<br>전체 생산 효율을 가로막고 있습니다.
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution">
+        <h2 class="section-title">스마트농업 3D 맞춤설계<br>컨설턴트</h2>
+        <p class="section-subtitle">기계공학과 3D 프린팅 기술을 모두 아는 전문가가<br>농가 현장을 직접 방문합니다.</p>
+        
+        <div class="solution-box">
+            <h3>문제는 기계 본체가 아니라,<br>기계와 농산물을 연결하는 '작은 부품'입니다.</h3>
+            <p>'스마트농업시스템기계공학' 전공 지식과 3D CAD 기술을 바탕으로,<br>대표님 농장의 환경과 핵심 작물에 꼭 맞는</p>
+            <p style="font-size: 22px; font-weight: 700; margin-top: 30px;">맞춤형 소형 부품 (특수 그리퍼, 맞춤형 고정 장치 등)을<br>3D로 직접 설계하고 제작(프린팅)합니다.</p>
+            <p style="font-size: 24px; font-weight: 900; margin-top: 40px; color: var(--tech-orange);">더 이상 기계에 농장을 맞추지 마세요.<br>농장에 기계를 맞추십시오.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <h2 class="section-title">3D 맞춤 설계가 드리는<br>3가지 가치</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-number">1</div>
+                <h3>압도적인 비용 절감</h3>
+                <p>금형 제작에 드는 수백, 수천만 원의 비용이 필요 없습니다. 3D 프린팅으로 단 하나의 부품도 합리적인 가격에 즉시 제작합니다.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">2</div>
+                <h3>즉각적인 현장 적용</h3>
+                <p>현장 실측 후 단 며칠 내에 설계, 시제품 테스트, 최종 부품 제작이 완료됩니다. 자동화 라인이 멈춰있는 시간을 최소화합니다.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">3</div>
+                <h3>생산 효율 극대화</h3>
+                <p>과일을 떨어트리던 로봇 팔이 완벽하게 작동합니다. '맞춤 부품' 하나로 전체 스마트팜 시스템의 생산성과 효율이 극대화됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="trust" class="trust">
+        <h2 class="section-title">누가 이 서비스를<br>제공하나요?</h2>
+        <p class="section-subtitle">'스마트농업시스템기계공학' 전공자의 현장 맞춤형 솔루션입니다.<br>단순히 3D 프린터만 다루는 기술자가 아닙니다.</p>
+        
+        <div class="credentials">
+            <div class="credential-card">
+                <div class="badge">🎓</div>
+                <h4>전문성</h4>
+                <p>스마트농업시스템기계공학 전공<br>농기계 및 자동화 시스템 이해</p>
+            </div>
+            <div class="credential-card">
+                <div class="badge">⚙️</div>
+                <h4>기술력</h4>
+                <p>전문 3D CAD/CAM 활용 능력<br>정밀 설계 및 시뮬레이션</p>
+            </div>
+            <div class="credential-card">
+                <div class="badge">🔧</div>
+                <h4>실행력</h4>
+                <p>3D 프린터 운용 및<br>고강도 소재 활용 즉시 제작</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; padding: 40px; background: white; border-radius: 16px; box-shadow: var(--shadow);">
+            <p style="font-size: 18px; color: #555; line-height: 1.8;">농업 기계의 원리와 자동화 시스템 구조를 이해하는 전공자가<br>현장의 근본적인 문제를 진단하고, 3D CAD 기술로 최적의 솔루션을 설계합니다.</p>
+            <p style="font-size: 16px; color: var(--deep-green); margin-top: 30px; font-weight: 700;">+ 스마트팜 도입 및 고도화에 필요한 정부 지원 사업 연계 컨설팅</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title">첫 10개 농가 한정<br>MVP 베타테스터 모집</h2>
+        <p class="section-subtitle">완벽한 서비스 런칭을 위해,<br>실제 현장의 목소리를 들려주실 10곳의 농가 대표님을 모십니다.</p>
+        
+        <div class="pricing-box">
+            <div class="beta-badge">🚀 베타테스터 특별 혜택</div>
+            <h3>지금 신청하시면</h3>
+            <ul class="benefits-list">
+                <li><strong>혜택 1:</strong> 현장 방문 및 문제 진단 컨설팅 무료 (정가 20만 원 상당)</li>
+                <li><strong>혜택 2:</strong> 3D 맞춤 부품 설계 및 제작비 50% 할인</li>
+                <li><strong>혜택 3:</strong> 정부 지원 사업 컨설팅 우선 제공</li>
+            </ul>
+            <p style="color: #e74c3c; font-weight: 700; font-size: 18px;">(선착순 10곳 마감 시 본 혜택은 예고 없이 종료됩니다.)</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <h2>지금 바로<br>'멈춰선 자동화'를 해결하세요</h2>
+        <p>비싼 기계가 멈춰있는 지금 이 순간이 가장 큰 손해입니다.<br>'맞춤 부품' 하나로 대표님 스마트팜의 효율을 100% 끌어올릴 기회입니다.</p>
+        <a href="#apply" class="cta-button">▶ 무료 현장 진단 및 50% 할인 신청하기</a>
+        <p class="urgency">⏰ 베타테스터 10곳 한정 · 선착순 마감</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>스마트농업 3D 맞춤설계 컨설턴트 | 문의: contact@smartfarm3d.com</p>
+        <p style="margin-top: 10px;">© 2025 Smart Farm 3D Design. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
